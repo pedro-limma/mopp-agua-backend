@@ -21,6 +21,4 @@ routes.post('/users', celebrate({
   })
 }), UserController.create);
 
-
-
 module.exports = routes;
