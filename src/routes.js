@@ -3,6 +3,7 @@ const { celebrate, Segments, Joi } = require('celebrate');
 
 const UserController = require('./controllers/UserController');
 const SessionController = require('./controllers/SessionController');
+const ArduinoController = require('./controllers/ArduinoController');
 
 const routes = express.Router();
 
@@ -20,5 +21,7 @@ routes.post('/users', celebrate({
     cep: Joi.string().required().length(8)
   })
 }), UserController.create);
+
+routes.post('/medicao', ArduinoController.create);
 
 module.exports = routes;

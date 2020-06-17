@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nodemon src/server.js",
     "start": "node src/server.js"
   },
   "keywords": [],
@@ -18,6 +18,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.20.13",
+    "mongoose": "^5.9.19",
     "serialport": "^9.0.0",
     "socket.io": "^2.3.0",
     "sqlite3": "^4.1.1"
