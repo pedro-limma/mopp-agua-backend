@@ -22,6 +22,6 @@ routes.post('/users', celebrate({
   })
 }), UserController.create);
 
-routes.post('/medicao', ArduinoController.create);
+routes.get('/medicao', ArduinoController.create);
 
 module.exports = routes;

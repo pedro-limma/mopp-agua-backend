@@ -17,3 +17,6 @@ port.on('open', () => {
     console.log(data);
   });
 });
+
+
+export default data;

@@ -2,8 +2,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('medicao', function (table) {
     table.increments();
-    table.float('litros').notNullable();
-    table.string('minutos').notNullable();
+    table.float('media').notNullable();
   });
 };
 
