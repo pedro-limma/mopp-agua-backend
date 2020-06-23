@@ -4,6 +4,7 @@ const { celebrate, Segments, Joi } = require('celebrate');
 const UserController = require('./controllers/UserController');
 const SessionController = require('./controllers/SessionController');
 const ArduinoController = require('./controllers/ArduinoController');
+const NoticeController = require('./controllers/NoticeController');
 
 const routes = express.Router();
 
@@ -23,5 +24,15 @@ routes.post('/users', celebrate({
 }), UserController.create);
 
 routes.get('/medicao', ArduinoController.create);
+
+routes.post('/notices', celebrate({
+  [Segments.BODY]: Joi.object().keys({
+    title: Joi.string().required(),
+    description: Joi.string().required(),
+    value: Joi.string().required()
+  })
+}), NoticeController.create);
+
+routes.get('/notices', NoticeController.index);
 
 module.exports = routes;
