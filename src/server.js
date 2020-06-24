@@ -1,19 +1,20 @@
 const express = require('express');
-const http = require('http');
-const PORT = 3333;
-const socketIO = require('socket.io');
 const routes = require('./routes');
+
 const cors = require('cors');
+
 const Readline = require('@serialport/parser-readline');
 const SerialPort = require('serialport');
 
 const connection = require('./database/connection');
 
+const http = require('http');
+const socketio = require('socket.io');
+
 
 const app = express();
-
-const server = http.createServer(app);
-
+const server = http.Server(app);
+const io = socketio(server);
 
 app.use(cors());
 
@@ -30,6 +31,8 @@ port.on('open', () => {
 
   parser.on('data',async (data)=>{
     console.log(data);
+    io.emit('connected', console.log('Conectado'));
+    io.emit('mostraDados', data);
     await connection('medicao').insert({
       media:data
     });
