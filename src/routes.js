@@ -24,6 +24,7 @@ routes.post('/users', celebrate({
 }), UserController.create);
 
 routes.get('/medicao', ArduinoController.index);
+//routes.post('/medicao', ArduinoController.create);
 
 routes.post('/notices', celebrate({
   [Segments.BODY]: Joi.object().keys({

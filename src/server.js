@@ -2,6 +2,7 @@ const express = require('express');
 const routes = require('./routes');
 
 const cors = require('cors');
+//const date = new Date();
 
 const Readline = require('@serialport/parser-readline');
 const SerialPort = require('serialport');
@@ -18,6 +19,7 @@ const io = socketio(server);
 
 app.use(cors());
 
+/*
 const port = new SerialPort('COM6', {
   boudRate: 9600
 });
@@ -33,11 +35,13 @@ port.on('open', () => {
     console.log(data);
     io.emit('connected', console.log('Conectado'));
     io.emit('mostraDados', data);
-    await connection('medicao').insert({
+    /*await connection('medicao').insert({
       media:data
+      time: `${date.getHours()}:${date.getMinutes()}`
     });
   });
 });
+*/
 
 app.use(express.json());
 app.use(routes);
